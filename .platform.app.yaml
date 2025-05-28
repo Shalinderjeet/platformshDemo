@@ -2,10 +2,6 @@ name: app
 
 type: "python:3.11"
 
-dependencies:
-  python:
-    pip: "23.2.1"
-
 hooks:
   build: |
     pip install -r requirements.txt

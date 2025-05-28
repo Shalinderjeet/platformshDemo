@@ -1,7 +1,1 @@
-from flask import Flask
-
-application = Flask(__name__)
-
-@application.route('/')
-def hello():
-    return 'Hello, World from Platform.sh!'
+from app import app as application

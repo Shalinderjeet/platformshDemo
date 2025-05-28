@@ -1,19 +1,18 @@
 name: app
 type: "python:3.11"
+disk: 1024
 
+# This tells Platform.sh how to run your app
+web:
+  commands:
+    start: "gunicorn app:app -b 0.0.0.0:8000"
+
+# Declare dependencies
 dependencies:
   python3:
     pipenv: "2022.12.19"
 
 hooks:
   build: |
-    set -eu
-    pipenv install --deploy --system
-
-web:
-  commands:
-    start: gunicorn wsgi:app
-  locations:
-    "/":
-      root: ""
-      passthru: false
+    set -eux
+    pipenv install --deploy --ignore-pipfile

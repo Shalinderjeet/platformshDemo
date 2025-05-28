@@ -1,5 +1,5 @@
 name: app
-type: "python:3.13"
+type: "python:3.11"
 
 dependencies:
   python3:

@@ -2,8 +2,10 @@ name: app
 type: "python:3.10"
 
 build:
-    commands:
-        - pip install -r requirements.txt
+    flavor: none
+
+build_hook: |
+    pip install -r requirements.txt
 
 web:
     commands:

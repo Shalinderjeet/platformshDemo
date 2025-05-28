@@ -1,0 +1,16 @@
+name: app
+type: "python:3.10"
+build:
+    commands:
+        - pip install -r requirements.txt
+
+web:
+    commands:
+        start: flask run --host=0.0.0.0 --port=8080
+    locations:
+        "/":
+            root: ""
+            passthru: true
+
+mounts: {}
+relationships: {}

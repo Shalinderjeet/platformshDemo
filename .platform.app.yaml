@@ -1,16 +1,19 @@
 name: app
 type: "python:3.10"
-build:
-    commands:
-        - pip install -r requirements.txt
+
+dependencies:
+  python3:
+    pipenv: "2022.12.19"
+
+hooks:
+  build: |
+    set -eu
+    pipenv install --system --deploy
 
 web:
-    commands:
-        start: flask run --host=0.0.0.0 --port=8080
-    locations:
-        "/":
-            root: ""
-            passthru: true
-
-mounts: {}
-relationships: {}
+  commands:
+    start: gunicorn wsgi:application
+  locations:
+    "/":
+      root: ""
+      passthru: false

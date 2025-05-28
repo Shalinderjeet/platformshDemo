@@ -20,6 +20,8 @@ web:
       allow: true
 
 mounts:
-  "/data": "shared:data"
+  "/data":
+    source: local
+    source_path: data
 
 disk: 256

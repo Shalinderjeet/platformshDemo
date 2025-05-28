@@ -1,11 +1,10 @@
 name: app
 type: "python:3.10"
 
-build:
-    flavor: none
-
-build_hook: |
-    pip install -r requirements.txt
+dependencies:
+    python:
+        flask: "*"
+        gunicorn: "*"
 
 web:
     commands:

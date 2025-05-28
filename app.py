@@ -4,4 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return "Hello, Platform.sh!"
+    return 'Hello, Platform.sh!'
+
+if __name__ == '__main__':
+    app.run()

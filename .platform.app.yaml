@@ -1,23 +1,17 @@
 name: app
+type: "python:3.10"
 
-type: "python:3.11"
-
-hooks:
-  build: |
-    pip install -r requirements.txt
+build:
+    commands:
+        - pip install -r requirements.txt
 
 web:
-  commands:
-    start: python app.py
-  locations:
-    "/":
-      root: ""
-      passthru: false
-      allow: true
+    commands:
+        start: gunicorn wsgi:application
+    locations:
+        "/":
+            root: ""
+            passthru: false
 
-mounts:
-  "/data":
-    source: local
-    source_path: data
-
-disk: 256
+mounts: {}
+relationships: {}
